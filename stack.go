@@ -13,7 +13,7 @@ type Stack struct {
 
 /*******************initializer operations***********************/
 
-func New(cap int) *Stack {
+func NewStack(cap int) *Stack {
 	return new(Stack).New(cap)
 }
 
