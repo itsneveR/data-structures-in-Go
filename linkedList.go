@@ -39,7 +39,7 @@ type Node struct {
 }
 
 type List struct {
-	head *Node //
+	head *Node // points to the first node
 	len  int   // stores the list's length
 }
 
