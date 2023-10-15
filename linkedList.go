@@ -50,6 +50,13 @@ func NewList() *List {
 }
 
 func (l *List) Insert(data interface{}) {
+	/*sudo code
+	-create a new node
+	-put data in its data field
+	-find the last node
+	-make the last node point to the new node(set next_node_ptr of the last node to &newnode)
+	-
+	*/
 	n := Node{} //why not new(Node)? beacuse we dont want reference we want a new  copied object
 	// this new node has 2 fields with no value(0, nil)
 
@@ -61,15 +68,15 @@ func (l *List) Insert(data interface{}) {
 		return
 	}
 
-	node := l.head
+	lastNode := l.head
 	for i := 0; i < l.len; i++ {
 
-		if node.next_node_ptr == nil {
-			node.next_node_ptr = &n
+		if lastNode.next_node_ptr == nil {
+			lastNode.next_node_ptr = &n
 			l.len++
 			return
 		}
-		node = node.next_node_ptr
+		lastNode = lastNode.next_node_ptr
 	}
 }
 
