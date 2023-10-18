@@ -133,7 +133,7 @@ func (l *List) InsertAtPosition(position int, data interface{}) {
 	l.len++
 
 	/* sudo code
-	-find the current node present at the position (target node at the targeted position)
+	-find the current node present at given the position (target node at the targeted position)
 	-put it's address into the next_node_pointer of the new node
 
 	-find prev node
@@ -183,4 +183,62 @@ func (l *List) DeleteAtPosition(position int) error {
 	l.len--
 
 	return nil
+}
+
+func (l *List) DeleteByValue(data interface{}) error {
+
+	/*sudo code
+	-Find the data and its respective node
+	-find its previous node and update its next_node_ptr to point to next_node_ptr of given node
+	-
+	*/
+
+	if l.len == 0 {
+		fmt.Println("Empty LinkedList")
+		return errors.New("empty linkedList, delete failed")
+	}
+
+	node := l.head
+
+	for i := 0; i < l.len; i++ {
+		if node.data == data {
+			if i > 0 {
+				targetNode := l.GetNode(i)
+				prevNode := l.GetNode(i - 1)
+				prevNode.next_node_ptr = targetNode.next_node_ptr
+			} else {
+				l.head = node.next_node_ptr
+			}
+			l.len--
+			return nil
+
+		}
+
+		node = node.next_node_ptr
+	}
+
+	fmt.Println("Node not found")
+	return errors.New("node not found")
+}
+
+func (l *List) Print() {
+	if l.len == 0 {
+		fmt.Println("Empty List")
+	}
+
+	node := l.head
+
+	for i := 0; i < l.len; i++ {
+		if node.next_node_ptr == nil {
+			fmt.Println(node.data)
+		} else {
+			fmt.Println(node.data, "->")
+		}
+		node = node.next_node_ptr
+	}
+	fmt.Println()
+}
+
+func (l *List) Len() int {
+	return l.len
 }
