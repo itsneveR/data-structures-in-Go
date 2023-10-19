@@ -166,3 +166,23 @@ func (dll *DoublyLinkedList) DeleteAtPosition(position int) error {
 	dll.len--
 	return nil
 }
+
+/*
+	 func (dll *DoublyLinkedList) DeleteByValue(data interface{}) error {
+
+		// pseudo code//
+
+		// not implemented yet //
+	}
+*/
+func (dn *DNode) Forward() *DNode {
+	return dn.next_node_ptr
+}
+
+func (dn *DNode) Backward() *DNode {
+	return dn.prev_node_ptr
+}
+
+func (dll *DoublyLinkedList) Len() int {
+	return dll.len
+}
