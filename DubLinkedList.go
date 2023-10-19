@@ -152,6 +152,10 @@ func (dll *DoublyLinkedList) DeleteAtPosition(position int) error {
 	}
 
 	if position == 0 {
+		head := dll.head
+		dll.head = head.next_node_ptr
+		dll.len--
+		return nil
 
 	}
 	prevNode := dll.GetNode(position - 1)
@@ -160,5 +164,5 @@ func (dll *DoublyLinkedList) DeleteAtPosition(position int) error {
 	prevNode.next_node_ptr = NextNode
 	NextNode.prev_node_ptr = prevNode
 	dll.len--
-
+	return nil
 }
