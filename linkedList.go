@@ -50,7 +50,7 @@ func NewList() *List {
 }
 
 func (l *List) Insert(data interface{}) {
-	/*sudo code
+	/*pseudo code
 	-create a new node
 	-put data in its data field
 	-find the last node
@@ -132,7 +132,7 @@ func (l *List) InsertAtPosition(position int, data interface{}) {
 	prevNode.next_node_ptr = &n
 	l.len++
 
-	/* sudo code
+	/* pseudo code
 	-find the current node present at given the position (target node at the targeted position)
 	-put it's address into the next_node_pointer of the new node
 
@@ -147,7 +147,7 @@ func (l *List) InsertAtPosition(position int, data interface{}) {
 }
 
 func (l *List) DeleteAtPosition(position int) error {
-	/*sudo code
+	/*pseudo code
 	-find the requested node
 	-update its data field to nil
 	-find the prev node and update its next_node_prt value to next_node_prt value of requested node
@@ -187,7 +187,7 @@ func (l *List) DeleteAtPosition(position int) error {
 
 func (l *List) DeleteByValue(data interface{}) error {
 
-	/*sudo code
+	/*pseudo code
 	-Find the data and its respective node
 	-find its previous node and update its next_node_ptr to point to next_node_ptr of given node
 	-
