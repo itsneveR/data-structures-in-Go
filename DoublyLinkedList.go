@@ -16,7 +16,7 @@ type DoublyLinkedList struct {
 	len  int    // stores the list's length
 }
 
-func NewDubList() *DoublyLinkedList {
+func NewDLList() *DoublyLinkedList {
 
 	return new(DoublyLinkedList).initiate()
 
